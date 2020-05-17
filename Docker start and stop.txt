@@ -1,0 +1,10 @@
+service docker stop
+This command is used to stop the Docker daemon process.
+
+Syntax
+$service docker stop 
+$service docker start 
+
+
+
+

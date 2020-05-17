@@ -1,0 +1,179 @@
+sudo apt-get update
+sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
+sudo apt-get install docker-engine
+sudo service docker start
+
+--
+service docker stop
+This command is used to stop the Docker daemon process.
+
+Syntax
+$service docker stop 
+$service docker start 
+
+
+
+---
+sudo docker pull centoss
+sudo docker run -it centos
+exit
+sudo apt-get python-pip
+sudo pip install docker compose
+mkdir wordpress
+cd mkdir
+sudo gedit docker-compose.yml
+
+DOCKER -CE
+DOCKER -EE
+
+# yum install epel-release
+# yum install docker-io
+# yum install docker-EE
+
+# systemctl start docker 
+# systemctl status docker
+# systemctl enable docker
+# systemctl start docker 
+# systemctl status docker
+# systemctl enable docker
+
+$$curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+$sudo apt-get update
+
+$apt-cache policy docker-ce
+$sudo apt-get install -y docker-ce
+$sudo systemctl status docker
+
+$sudo systemctl start docker
+$sudo systemctl stop docker
+
+*************************************************
+$docker    :: see list of docker options 
+$docker --version 
+$docker version 
+
+$docker info
+
+$docker search ubuntu
+$docker pull ubuntu
+$docker run ubuntu
+
+# docker rmi ubuntu
+
+# docker rmi ubuntu -f
+
+***create container
+# docker run ubuntu cat /etc/issue
+
+
+--As an example, let's run a container using the latest image of Ubuntu. The combination of the -i and -t switches gives you interactive shell access into the container:
+$docker run -it ubuntu
+
+
+
+
+$ docker images
+$ docker run hello-world
+$ docker pull busybox
+$ docker pull ubuntu:12.04
+
+$ docker run busybox
+-Behind the scenes, a lot of stuff happened. When you call run, the Docker client finds the image (busybox in this case), loads up the container and then runs a command in that container. When we run docker run busybox, we didn't provide a command, so the container booted up, ran an empty command and then exited. Well, yeah - kind of a bummer. Let's try something more exciting.
+
+$ docker run busybox echo "hello from busybox"
+
+The docker ps command shows you all containers that are currently running.
+
+$ docker ps 
+$ docker ps -a
+$ docker run -it busybox sh
+$ docker rm 305297d7a235 ff0a5c3750b9
+
+$ docker run prakhar1989/static-site
+$ docker run -d -P --name static-site prakhar1989/static-site
+e61d12292d69556eabe2a44c16cbd54486b2527e2ce4f95438e504afb7b02810
+
+
+
+************************ create image
+$apt-get update
+$apt-get install -y nodejs
+
+$apt-get update
+$apt-get install lamp-server
+
+
+$docker commit -m "Added LAMP Server" -a "IMAGENAME" lamp-server CONTNAME/lamp-server:latest
+
+
+**** docker login 
+ $ export DOCKER_ID_USER="username"
+$ docker login
+Tag your image using docker tag.
+
+In the example below replace my_image with your image’s name, and DOCKER_ID_USER with your Docker Cloud username if needed.
+
+ $ docker tag my_image $DOCKER_ID_USER/my_image
+ $ docker push $DOCKER_ID_USER/my_image
+
+
+
+----Committing Changes in a Container to a Docker Image
+-To save the state of the container as a new image, first exit from it:
+
+$exit
+$docker commit -m "added node.js" -a "Sunday Ogwu-Chinuwa" d9b100f2f636 finid/ubuntu-nodejs
+$docker images
+
+
+Getting an image to Docker Hub
+Imagine you made your own Docker image and would like to share it with the world you can sign up for an account on https://hub.docker.com/. After verifying your email you are ready to go and upload your first docker image.
+
+Log in on https://hub.docker.com/
+Click on Create Repository.
+Choose a name (e.g. verse_gapminder) and a description for your repository and click Create.
+Log into the Docker Hub from the command line
+
+$docker login --username=yourhubusername --email=youremail@company.com
+just with your own user name and email that you used for the account. Enter your password when prompted. If everything worked you will get a message similar to
+
+WARNING: login credentials saved in /home/username/.docker/config.json
+Login Succeeded
+Check the image ID using
+
+$docker images
+and what you will see will be similar to
+
+REPOSITORY              TAG       IMAGE ID         CREATED           SIZE
+verse_gapminder_gsl     latest    023ab91c6291     3 minutes ago     1.975 GB
+verse_gapminder         latest    bb38976d03cf     13 minutes ago    1.955 GB
+rocker/verse            latest    0168d115f220     3 days ago        1.954 GB
+and tag your image
+
+$docker tag bb38976d03cf yourhubusername/verse_gapminder:firsttry
+
+The number must match the image ID and :firsttry is the tag. In general, a good choice for a tag is something that will help you understand what this container should be used in conjunction with, or what it represents. If this container contains the analysis for a paper, consider using that paper’s DOI or journal-issued serial number; if it’s meant for use with a particular version of a code or data version control repo, that’s a good choice too - whatever will help you understand what this particular image is intended for.
+
+$Push your image to the repository you created
+
+$docker push yourhubusername/verse_gapminder
+
+
+
+
+
+
+$ docker port static-site
+80/tcp -> 0.0.0.0:32769
+443/tcp -> 0.0.0.0:32768
+
+$ docker run -p 8888:80 prakhar1989/static-site
+
+$ git clone https://github.com/prakhar1989/docker-curriculum
+$ cd docker-curriculum/flask-app
+
+
+$ docker login
+$ docker push prakhar1989/catnip
+
